@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src='component_temple_test.dart' type='application/dart'></script>
+  </head>
+
+  <body>
+
+    <templates>
+
+      <template name="button">
+        <div class="button"><!--Component_content--></div>
+      </template>
+
+      <template name="greenButton" component-class-name="button">
+        <div class="button green"><!--Component_content--></div>
+      </template>
+
+      <template name="captionButton">
+        <div class="captionButton"><!--Component_property:caption--></div>
+      </template>
+
+      <template name="textfield">
+        <input type="text"/>
+      </template>
+
+      <template name="buttonContainer">
+        <div class="buttonContainer">
+          <!--Component_content-->
+          <!--Component_children:any-->
+          <!--Component_children:submit-->
+          <!--Component_children:special_child-->
+          <!--Component_children:temporary_button-->
+        </div>
+      </template>
+
+      <template name="mock">
+        <div class="mock">
+          <div class="clickableStuff" data-event-listener></div>
+          <!--Component_content-->
+        </div>
+      </template>
+
+      <template name="captionAsContentButton">
+        <div class="captionAsContentButton"><!--Component_content--></div>
+      </template>
+
+      <template name="altNumeration" data-numeration-type="random">
+        <div></div>
+      </template>
+
+    </templates>
+
+    <div><button data-component-role="stupid">This is button 1 caption</button></div>
+    <button>This is button 2 caption</button>
+
+    <caption-button data-property-caption="hello" data-property-invalid="should be ignored"></caption-button>
+
+    <button-container>
+      <button>hello</button>
+    </button-container>
+
+    <mock>
+      <mock>this is mock</mock>
+    </mock>
+
+    <button data-component-name="SuperButton_1"></button>
+    <green-button></green-button>
+    <caption-as-content-button>caption</caption-as-content-button>
+
+    <alt-numeration></alt-numeration>
+
+  </body>
+
+</html>
