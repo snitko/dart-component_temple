@@ -6,9 +6,9 @@ import 'dart:mirrors';
 import 'dart:math'   ;
 
 // local libs
-import '../observable/observable.dart' as observable;
-import '../attributable/attributable.dart';
-import '../validatable/validatable.dart';
+import 'package:observable_roles/observable_roles.dart' as observable;
+import 'package:attributable/attributable.dart';
+import 'package:validatable/validatable.dart';
 
 // parts of the current lib
 part   'src/string_case_operations.dart';

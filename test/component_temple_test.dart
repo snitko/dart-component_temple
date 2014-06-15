@@ -1,12 +1,12 @@
 import 'dart:html';
-import 'package:unittest/unittest.dart';
-import 'package:unittest/mock.dart';
-import 'package:unittest/html_config.dart';
 import 'dart:mirrors';
-import '../component_temple.dart';
-import '../../attributable/attributable.dart';
-import '../../validatable/validatable.dart';
-import '../../observable/observable.dart';
+import 'package:unittest/unittest.dart';
+import 'package:unittest/html_config.dart';
+import '../lib/component_temple.dart';
+
+import 'package:attributable/attributable.dart';
+import 'package:observable_roles/observable_roles.dart';
+import 'package:validatable/validatable.dart';
 
 class ButtonComponent extends Component {
 
@@ -264,12 +264,12 @@ main() {
       expect(new DOMVirtualContainer.find('Component_property:caption', button.element).text, equals('caption change 2'));
     });
 
-    test('updates attributes in bulk, adds validation errors if Validatable is mixed in', () {
+    test('updates attributes in bulk, adds validation errors (Validatable is mixed in)', () {
       var button = new ButtonComponent.build({});
       button.updateAttributes({ 'caption' : 'new caption'});
       expect(button.caption, equals('new caption'));
       var validatable_component = new ValidatableComponent.build({ 'template_name': 'button'});
-      validatable_component.updateAttributes({ 'attr1' : 11, 'attr2': ''});
+      expect(validatable_component.updateAttributes({ 'attr1' : 11, 'attr2': ''}), isFalse);
       expect(validatable_component.validation_errors.keys.contains('attr1'), isTrue);
       expect(validatable_component.validation_errors.keys.contains('attr2'), isTrue);
     });

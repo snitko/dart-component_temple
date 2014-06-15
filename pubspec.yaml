@@ -1,23 +1,29 @@
 name: component_temple
-version: 0.0.1
+version: 0.1.0
 description: >
   A library for creating architecturally beautiful
-  GUI interfaces. The central of it is the idea of an
-  hierarchy of components reacting to events and behaving
-  themselves in various differen ways visible to users.
-  on the project homepage.
+  GUI interfaces. The central idea of it is an hierarchy
+  of components reacting to events and behaving themselves
+  in various different ways visible to users.
 
-  It can be used a stand alone library, on one-page webapps or
+  It can be used as a stand alone library, both on one-page webapps or
   on ones with multiple pages (content oriented websites that care
   about SEO).
 
   Read a very thorough (but simple to follow!) explanation
   on the project homepage.
 
-homepage:      http://temple.snitko.ru/component-temple
+author: Roman Snitko <roman.snitko@gmail.com>
+homepage: http://temple.snitko.ru/component-temple
 documentation: http://temple.snitko.ru/component-temple/doc
 
 dependencies:
+  attributable:
+    path: '../attributable/'
+  observable_roles:
+    path: '../observable_roles/'
+  validatable:
+    path: '../validatable/'
 
 dev_dependencies:
   unittest: any

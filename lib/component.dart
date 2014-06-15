@@ -271,6 +271,23 @@ class Component extends Object with observable.Subscriber, observable.Publisher,
     return value;
   }
 
+  updateAttributes(attrs) {
+    return super.updateAttributes(attrs, () {
+      try {
+        if(this is Validatable) {
+          validate();
+          if(valid)
+            return true;
+          else
+            return false;
+        }
+      } on TypeError {
+        return true;
+        // Do nothing, Validatable is not loaded, who gives a shit!
+      }   
+    });
+  }
+
   behave(b) {
     if(this.behaviors[b] != null) {
       this.behaviors[b](this.element);
